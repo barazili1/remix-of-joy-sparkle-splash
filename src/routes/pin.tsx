@@ -2,6 +2,7 @@ import { createFileRoute, useNavigate, useRouter } from "@tanstack/react-router"
 import { useState } from "react";
 import { ChevronRight, ChevronDown, Eye } from "lucide-react";
 import { ProgressMark } from "@/components/progress-mark";
+import { recordTransfer } from "@/lib/wallet";
 import ipnLogo from "@/assets/ipn-color.png";
 
 type PinSearch = {
