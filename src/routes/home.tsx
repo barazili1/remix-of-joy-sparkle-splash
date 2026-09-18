@@ -60,6 +60,8 @@ function HomePage() {
   const [loading, setLoading] = useState(false);
   const [balanceLoading, setBalanceLoading] = useState(false);
   const navigate = useNavigate();
+  const { transactions } = useWallet();
+
 
   useEffect(() => {
     if (sessionStorage.getItem("pendingBalance") !== "1") return;
@@ -150,11 +152,12 @@ function HomePage() {
           <h2>المعاملات</h2>
           <button type="button">المزيد</button>
         </div>
+        {transactions.length === 0 && <p className="tx-empty">لا توجد معاملات بعد</p>}
         <ul className="tx-list">
-          {transactions.map((tx, i) => (
-            <li className="tx-row" key={i}>
+          {transactions.map((tx) => (
+            <li className="tx-row" key={tx.id}>
               <div className="tx-head">
-                <strong dir="ltr">{tx.amount}</strong>
+                <strong dir="ltr">{formatMoney(tx.amount)} EGP</strong>
                 <div className="tx-status">
                   <span className="tx-badge">ناجحة</span>
                   <span className="tx-chevron" aria-hidden="true">
