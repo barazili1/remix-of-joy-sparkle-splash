@@ -62,6 +62,12 @@ function PinPage() {
       if (pin === "200200") {
         setIsLoading(true);
         if (isTransfer) {
+          const numericAmount = Number(amount.replaceAll(",", "")) || 0;
+          recordTransfer({
+            amount: numericAmount,
+            fee: Math.max(0.5, numericAmount * 0.001),
+            phone,
+          });
           void router.preloadRoute({
             to: "/success-simulator",
             search: { amount, phone },
