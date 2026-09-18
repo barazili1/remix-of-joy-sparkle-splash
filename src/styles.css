@@ -1115,7 +1115,7 @@
 }
 
 .pin-enter-transfer {
-  animation: page-enter-from-left 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: page-enter-from-left 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .pin-loading {
@@ -1369,6 +1369,7 @@
   padding-bottom: 96px;
   position: relative;
   overflow-x: hidden;
+  animation: page-enter-from-left 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .ts-hero {
   position: relative;
