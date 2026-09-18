@@ -1114,7 +1114,7 @@
   flex-direction: column;
 }
 
-.pin-enter-transfer {
+.pin-enter-transfer {}
 
 .pin-loading {
   position: fixed;
