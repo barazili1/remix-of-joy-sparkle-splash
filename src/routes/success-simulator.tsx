@@ -1,8 +1,19 @@
+import { useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Check, ChevronDown, ChevronRight, Share2, Star, Wallet } from "lucide-react";
 import bankLogo from "@/assets/nbe-logo.png";
 import ipnLogo from "@/assets/ipn-logo-colored.png";
 import successCheck from "@/assets/success-check.jpeg";
+
+const FEE = 0.5;
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+function formatTransactionDate(d: Date) {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const h12 = d.getHours() % 12 || 12;
+  const ampm = d.getHours() >= 12 ? "PM" : "AM";
+  return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()} ${pad(h12)}:${pad(d.getMinutes())} ${ampm}`;
+}
 
 type SuccessSearch = {
   amount?: string;
@@ -33,6 +44,9 @@ function SuccessSimulatorPage() {
   const { amount: amountSearch, phone: phoneSearch } = Route.useSearch();
   const amount = Number((amountSearch ?? "2000").replaceAll(",", "")) || 2000;
   const phone = phoneSearch?.trim() || "01030335696";
+  const [showDetails, setShowDetails] = useState(false);
+  const [reference] = useState(() => Array.from({ length: 12 }, () => Math.floor(Math.random() * 10)).join(""));
+  const [transactionDate] = useState(() => formatTransactionDate(new Date()));
 
   return (
     <main className="success-simulator" dir="rtl" lang="ar">
@@ -71,10 +85,44 @@ function SuccessSimulatorPage() {
         </article>
       </section>
 
-      <button type="button" className="success-more">
-        <span>المزيد من التفاصيل</span>
+      <button
+        type="button"
+        className={`success-more${showDetails ? " open" : ""}`}
+        aria-expanded={showDetails}
+        onClick={() => setShowDetails((v) => !v)}
+      >
+        <span>{showDetails ? "إخفاء التفاصيل" : "المزيد من التفاصيل"}</span>
         <ChevronDown />
       </button>
+
+      {showDetails && (
+        <section className="success-details" aria-label="تفاصيل المعاملة">
+          <article className="success-detail-card">
+            <div className="success-detail-row">
+              <span className="success-detail-label">رسوم الخدمة</span>
+              <span className="success-detail-value" dir="ltr">{FEE.toFixed(1)} EGP</span>
+            </div>
+            <div className="success-detail-row">
+              <span className="success-detail-label">المبلغ الإجمالي</span>
+              <span className="success-detail-value" dir="ltr">{(amount + FEE).toFixed(1)} EGP</span>
+            </div>
+          </article>
+          <article className="success-detail-card">
+            <div className="success-detail-row">
+              <span className="success-detail-label">الرقم المرجعي</span>
+              <span className="success-detail-value" dir="ltr">{reference}</span>
+            </div>
+            <div className="success-detail-row">
+              <span className="success-detail-label">التاريخ</span>
+              <span className="success-detail-value" dir="ltr">{transactionDate}</span>
+            </div>
+            <div className="success-detail-row">
+              <span className="success-detail-label">ملاحظة</span>
+              <span className="success-detail-value">مصارف المعيشة</span>
+            </div>
+          </article>
+        </section>
+      )}
 
       <img className="success-ipn" src={ipnLogo} alt="Powered by IPN" />
 
