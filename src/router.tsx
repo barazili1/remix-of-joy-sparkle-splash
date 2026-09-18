@@ -21,7 +21,7 @@ export const getRouter = () => {
         const from = fromLocation?.pathname;
         if (to === "/pin") return ["vt-up"];
         if (to === "/transfersimulator") return ["vt-right"];
-        if (to === "/") {
+        if (to === "/" || to === "/home") {
           return from === "/success-simulator" ? ["vt-back"] : ["vt-left"];
         }
         return [];
