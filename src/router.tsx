@@ -22,7 +22,9 @@ export const getRouter = () => {
         if (to === "/pin") return ["vt-up"];
         if (to === "/transfersimulator") return ["vt-right"];
         if (to === "/" || to === "/home") {
-          return from === "/success-simulator" ? ["vt-back"] : ["vt-left"];
+          if (from === "/success-simulator") return ["vt-back"];
+          if (from === "/") return []; // splash -> home: no slide
+          return ["vt-left"];
         }
         return [];
       },
