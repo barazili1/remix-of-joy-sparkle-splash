@@ -44,6 +44,9 @@ function SuccessSimulatorPage() {
   const { amount: amountSearch, phone: phoneSearch } = Route.useSearch();
   const amount = Number((amountSearch ?? "2000").replaceAll(",", "")) || 2000;
   const phone = phoneSearch?.trim() || "01030335696";
+  const [showDetails, setShowDetails] = useState(false);
+  const [reference] = useState(() => Array.from({ length: 12 }, () => Math.floor(Math.random() * 10)).join(""));
+  const [transactionDate] = useState(() => formatTransactionDate(new Date()));
 
   return (
     <main className="success-simulator" dir="rtl" lang="ar">
