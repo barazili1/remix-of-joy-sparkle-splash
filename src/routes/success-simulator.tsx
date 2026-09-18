@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { Check, ChevronDown, ChevronLeft, Share2, Star, Wallet } from "lucide-react";
+import { Check, ChevronDown, ChevronRight, Share2, Star, Wallet } from "lucide-react";
 import bankLogo from "@/assets/nbe-logo.png";
-import ipnLogo from "@/assets/ipn-logo.png";
+import ipnLogo from "@/assets/ipn-logo-colored.png";
 import successCheck from "@/assets/success-check.jpeg";
 
 type SuccessSearch = {
@@ -39,7 +39,7 @@ function SuccessSimulatorPage() {
       <header className="success-header">
         <h1>معاملة ناجحة</h1>
         <button type="button" aria-label="رجوع" onClick={() => navigate({ to: "/home" })}>
-          <ChevronLeft strokeWidth={2.6} />
+          <ChevronRight strokeWidth={2.6} />
         </button>
       </header>
 
