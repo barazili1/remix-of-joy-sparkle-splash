@@ -2022,17 +2022,17 @@
 
 .success-visual {
   display: block;
-  width: 220px;
-  height: 165px;
-  margin: 7px auto 0;
+  width: 200px;
+  height: 158px;
+  margin: 10px auto 0;
   object-fit: cover;
-  mix-blend-mode: multiply;
+  mix-blend-mode: darken;
 }
-.success-message { margin: 7px 0 0; text-align: center; font-size: 19px; }
-.success-amount { display: grid; justify-items: center; margin-top: 18px; }
-.success-amount strong { font: 700 40px/1.1 var(--font-arabic); }
-.success-amount strong span { color: var(--success-orange); font-size: 27px; }
-.success-amount small { margin-top: 6px; color: var(--success-muted); font-size: 16px; }
+.success-message { margin: 8px 0 0; text-align: center; font-size: 22px; }
+.success-amount { display: grid; justify-items: center; margin-top: 24px; }
+.success-amount strong { font: 700 46px/1.1 var(--font-arabic); }
+.success-amount strong span { color: var(--success-orange); font-size: 30px; }
+.success-amount small { margin-top: 6px; color: var(--success-muted); font-size: 13px; }
 
 .success-receipt {
   position: relative;
@@ -2048,7 +2048,7 @@
   grid-template-columns: 47px 1fr;
   align-items: center;
   gap: 9px;
-  min-height: 73px;
+  min-height: 100px;
   padding: 9px 13px;
   box-sizing: border-box;
 }
@@ -2063,7 +2063,7 @@
 .success-divider-check {
   position: absolute;
   z-index: 3;
-  top: 72px;
+  top: 50%;
   left: 50%;
   display: grid;
   place-items: center;
@@ -2086,7 +2086,7 @@
   color: var(--success-orange) !important;
 }
 .success-wallet svg { width: 27px; height: 27px; }
-.success-to p { font-weight: 700; }
+.success-to p { font-size: 16px; font-weight: 700; }
 .success-to p span { margin-left: 7px; font-weight: 400; }
 .success-to strong { display: block; margin-top: 3px; color: var(--success-muted); font-size: 13px; font-weight: 400; }
 .success-star { position: absolute; left: 20px; top: 31px; width: 25px; height: 25px; color: var(--success-orange); }
@@ -2107,9 +2107,9 @@
   cursor: pointer;
 }
 .success-more svg { width: 18px; height: 18px; }
-.success-ipn { display: block; width: 89px; height: auto; margin: auto auto 18px; object-fit: contain; }
+.success-ipn { display: block; width: 105px; height: auto; margin: auto auto 18px; object-fit: contain; }
 .success-actions { display: grid; grid-template-columns: 1fr 56px; gap: 14px; direction: ltr; }
-.success-actions button { height: 56px; border: 0; font-family: inherit; cursor: pointer; }
+.success-actions button { height: 48px; border: 0; font-family: inherit; cursor: pointer; }
 .success-home {
   border-radius: 14px;
   background: linear-gradient(90deg, oklch(0.39 0.26 300), oklch(0.53 0.29 305));
