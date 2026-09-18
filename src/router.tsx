@@ -11,8 +11,23 @@ export const getRouter = () => {
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
     defaultViewTransition: {
-      // Navigating into the PIN page slides up; everything else slides right.
-      types: ({ toLocation }) => (toLocation.pathname === "/pin" ? ["vt-up"] : []),
+      // Per-navigation transition types:
+      // - into PIN: slides up
+      // - into the transfer page: slides right (fast)
+      // - back home from transfer: slides left (fast)
+      // - back home from success: slides left, slightly slower
+      types: ({ fromLocation, toLocation }) => {
+        const to = toLocation?.pathname;
+        const from = fromLocation?.pathname;
+        if (to === "/pin") return ["vt-up"];
+        if (to === "/transfersimulator") return ["vt-right"];
+        if (to === "/" || to === "/home") {
+          if (from === "/success-simulator") return ["vt-back"];
+          if (from === "/") return []; // splash -> home: no slide
+          return ["vt-left"];
+        }
+        return [];
+      },
     },
   });
 

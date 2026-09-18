@@ -1967,7 +1967,19 @@
   }
   /* Entering the PIN page: the new page moves up over the old one. */
   html:active-view-transition-type(vt-up)::view-transition-new(root) {
-    animation: vt-page-up 1000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: vt-page-up 150ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  /* Home -> transfer: fast slide right. */
+  html:active-view-transition-type(vt-right)::view-transition-new(root) {
+    animation: vt-page-in 100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  /* Transfer -> home: fast slide left. */
+  html:active-view-transition-type(vt-left)::view-transition-new(root) {
+    animation: vt-page-left 100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  /* Success -> home: slide left, slightly slower. */
+  html:active-view-transition-type(vt-back)::view-transition-new(root) {
+    animation: vt-page-left 150ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 }
 
@@ -1979,6 +1991,11 @@
 @keyframes vt-page-up {
   from { transform: translateY(100%); }
   to { transform: translateY(0); }
+}
+
+@keyframes vt-page-left {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 }
 
 /* ===== Successful transfer ===== */
@@ -2147,7 +2164,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.success-ipn { display: block; width: 113px; height: auto; margin: auto auto 20px; object-fit: contain; }
+.success-ipn { display: block; width: 120px; height: auto; margin: auto auto 20px; object-fit: contain; }
 .success-actions { display: grid; grid-template-columns: 1fr 56px; gap: 14px; direction: ltr; }
 .success-actions button { height: 48px; border: 0; font-family: inherit; cursor: pointer; }
 .success-home {
