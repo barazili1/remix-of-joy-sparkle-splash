@@ -146,7 +146,7 @@
   }
 
   body {
-    background-color: oklch(0.48 0.3 300);
+    background-color: oklch(1 0 0);
     color: var(--color-foreground);
     margin: 0;
   }
@@ -1962,8 +1962,8 @@
 }
 
 @keyframes page-enter-from-left {
-  from { opacity: 0; transform: translateX(-34px); }
-  to { opacity: 1; transform: translateX(0); }
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
 }
 
 /* ===== Successful transfer ===== */
