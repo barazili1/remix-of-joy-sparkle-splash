@@ -24,6 +24,7 @@ import serviceSend from "@/assets/service-send.png";
 import serviceHistory from "@/assets/service-history.png";
 import serviceAccounts from "@/assets/service-accounts.png";
 import serviceDonations from "@/assets/service-donations.png";
+import { formatMoney, useWallet } from "@/lib/wallet";
 
 export const Route = createFileRoute("/home")({
   head: () => ({
