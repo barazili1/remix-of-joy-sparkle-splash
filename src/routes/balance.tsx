@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import ipnLogo from "@/assets/ipn-color.png";
+import { formatMoney, useWallet } from "@/lib/wallet";
 
 export const Route = createFileRoute("/balance")({
   head: () => ({
@@ -24,6 +25,8 @@ export const Route = createFileRoute("/balance")({
 
 function BalancePage() {
   const navigate = useNavigate();
+  const { balance } = useWallet();
+
 
   return (
     <div className="pin balance" dir="rtl" lang="ar">
@@ -51,7 +54,7 @@ function BalancePage() {
 
       <div className="balance-body">
         <p className="balance-label">رصيد حسابك المتاح هو</p>
-        <p className="balance-amount" dir="ltr">2,394.48 EGP</p>
+        <p className="balance-amount" dir="ltr">{formatMoney(balance)} EGP</p>
       </div>
 
       <button

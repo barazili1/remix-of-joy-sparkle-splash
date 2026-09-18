@@ -24,6 +24,7 @@ import serviceSend from "@/assets/service-send.png";
 import serviceHistory from "@/assets/service-history.png";
 import serviceAccounts from "@/assets/service-accounts.png";
 import serviceDonations from "@/assets/service-donations.png";
+import { formatMoney, useWallet } from "@/lib/wallet";
 
 export const Route = createFileRoute("/home")({
   head: () => ({
@@ -54,54 +55,14 @@ const services = [
   { label: "المعاملات السابقة", image: serviceHistory },
 ];
 
-const transactions = [
-  {
-    amount: "1,600 EGP",
-    sub: "MAHMOUD M****** F****",
-    name: "M A H M O U D",
-    date: "16 Sep 2026 02:19 PM",
-    kind: "إرسال نقود",
-    out: true,
-  },
-  {
-    amount: "3,996 EGP",
-    sub: "AHMED SOBHY AHMED",
-    name: "ahmedsobhi7781@instapay",
-    date: "16 Sep 2026 03:06 AM",
-    kind: "إستلام نقود",
-    out: false,
-  },
-  {
-    amount: "2,000 EGP",
-    sub: "MAHMOUD M****** F****",
-    name: "M A H M O U D",
-    date: "15 Sep 2026 08:44 PM",
-    kind: "إرسال نقود",
-    out: true,
-  },
-  {
-    amount: "2,000 EGP",
-    sub: "AHMED SOBHY AHMED",
-    name: "ahmedsobhi7781@instapay",
-    date: "15 Sep 2026 06:30 PM",
-    kind: "إستلام نقود",
-    out: false,
-  },
-  {
-    amount: "300 EGP",
-    sub: "OMAR A S****",
-    name: "Me",
-    date: "11 Sep 2026 09:32 PM",
-    kind: "إرسال نقود",
-    out: true,
-  },
-];
 
 function HomePage() {
   const [qrOpen, setQrOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [balanceLoading, setBalanceLoading] = useState(false);
   const navigate = useNavigate();
+  const { transactions } = useWallet();
+
 
   useEffect(() => {
     if (sessionStorage.getItem("pendingBalance") !== "1") return;
@@ -192,11 +153,12 @@ function HomePage() {
           <h2>المعاملات</h2>
           <button type="button">المزيد</button>
         </div>
+        {transactions.length === 0 && <p className="tx-empty">لا توجد معاملات بعد</p>}
         <ul className="tx-list">
-          {transactions.map((tx, i) => (
-            <li className="tx-row" key={i}>
+          {transactions.map((tx) => (
+            <li className="tx-row" key={tx.id}>
               <div className="tx-head">
-                <strong dir="ltr">{tx.amount}</strong>
+                <strong dir="ltr">{formatMoney(tx.amount)} EGP</strong>
                 <div className="tx-status">
                   <span className="tx-badge">ناجحة</span>
                   <span className="tx-chevron" aria-hidden="true">

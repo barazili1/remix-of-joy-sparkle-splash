@@ -567,6 +567,13 @@
   list-style: none;
 }
 
+.tx-empty {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 15px;
+  color: oklch(0.55 0.02 267);
+}
+
 .tx-row {
   padding: 0.9rem 0;
   border-bottom: 1px solid oklch(0.92 0.01 270);
