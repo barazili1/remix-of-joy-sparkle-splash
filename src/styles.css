@@ -146,7 +146,7 @@
   }
 
   body {
-    background-color: oklch(0.48 0.3 300);
+    background-color: oklch(1 0 0);
     color: var(--color-foreground);
     margin: 0;
   }
@@ -1115,7 +1115,7 @@
 }
 
 .pin-enter-transfer {
-  animation: page-enter-from-left 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: page-enter-from-left 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .pin-loading {
@@ -1369,6 +1369,7 @@
   padding-bottom: 96px;
   position: relative;
   overflow-x: hidden;
+  animation: page-enter-from-left 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .ts-hero {
   position: relative;
@@ -1711,6 +1712,7 @@
   color: var(--confirm-paper);
   font-family: var(--font-arabic);
   background-color: var(--confirm-violet);
+  animation: page-enter-from-left 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .confirm-bg {
@@ -1958,12 +1960,13 @@
 @media (prefers-reduced-motion: reduce) {
   .confirm-simulation,
   .pin-enter-transfer,
-  .success-simulator { transition: none; animation: none; }
+  .success-simulator,
+  .ts { transition: none; animation: none; }
 }
 
 @keyframes page-enter-from-left {
-  from { opacity: 0; transform: translateX(-34px); }
-  to { opacity: 1; transform: translateX(0); }
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
 }
 
 /* ===== Successful transfer ===== */
@@ -1987,7 +1990,7 @@
   background: var(--success-bg);
   color: var(--success-ink);
   font-family: var(--font-arabic);
-  animation: page-enter-from-left 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: page-enter-from-left 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .success-header {

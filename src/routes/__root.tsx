@@ -38,6 +38,7 @@ import iconClipboard from "../assets/clipboard.png";
 import bankLogo from "../assets/nbe-logo.png";
 import confirmWallet from "../assets/wallet.png";
 import successCheck from "../assets/success-check.jpeg";
+import instapayBackground from "../assets/instapay-background.jpeg";
 
 const pageImages = [
   homeHeader,
@@ -66,6 +67,7 @@ const pageImages = [
   bankLogo,
   confirmWallet,
   successCheck,
+  instapayBackground,
 ];
 
 function NotFoundComponent() {
