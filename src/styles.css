@@ -1122,10 +1122,10 @@
   position: fixed;
   inset: 0;
   z-index: 70;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: oklch(0 0 0 / 0.35);
-  backdrop-filter: blur(3px);
   animation: transfer-loading-in 180ms ease-out both;
 }
 
@@ -1675,10 +1675,10 @@
   position: fixed;
   inset: 0;
   z-index: 60;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: oklch(0 0 0 / 0.35);
-  backdrop-filter: blur(3px);
   animation: transfer-loading-in 180ms ease-out both;
 }
 
