@@ -2171,6 +2171,9 @@
   .success-party { min-height: 66px; padding-block: 6px; }
   .success-divider-check { top: 65px; }
   .success-more { margin-top: 10px; font-size: 15px; }
+  .success-details { gap: 10px; margin-top: 12px; }
+  .success-detail-card { gap: 9px; padding: 12px 14px; }
+  .success-detail-row { font-size: 15px; }
   .success-ipn { width: 72px; margin-bottom: 8px; }
 }
 
