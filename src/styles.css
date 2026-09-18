@@ -1967,7 +1967,7 @@
   }
   /* Entering the PIN page: the new page moves up over the old one. */
   html:active-view-transition-type(vt-up)::view-transition-new(root) {
-    animation: vt-page-up 1000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: vt-page-up 150ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
   /* Home -> transfer: fast slide right. */
   html:active-view-transition-type(vt-right)::view-transition-new(root) {
