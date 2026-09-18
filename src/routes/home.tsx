@@ -54,48 +54,6 @@ const services = [
   { label: "المعاملات السابقة", image: serviceHistory },
 ];
 
-const transactions = [
-  {
-    amount: "1,600 EGP",
-    sub: "MAHMOUD M****** F****",
-    name: "M A H M O U D",
-    date: "16 Sep 2026 02:19 PM",
-    kind: "إرسال نقود",
-    out: true,
-  },
-  {
-    amount: "3,996 EGP",
-    sub: "AHMED SOBHY AHMED",
-    name: "ahmedsobhi7781@instapay",
-    date: "16 Sep 2026 03:06 AM",
-    kind: "إستلام نقود",
-    out: false,
-  },
-  {
-    amount: "2,000 EGP",
-    sub: "MAHMOUD M****** F****",
-    name: "M A H M O U D",
-    date: "15 Sep 2026 08:44 PM",
-    kind: "إرسال نقود",
-    out: true,
-  },
-  {
-    amount: "2,000 EGP",
-    sub: "AHMED SOBHY AHMED",
-    name: "ahmedsobhi7781@instapay",
-    date: "15 Sep 2026 06:30 PM",
-    kind: "إستلام نقود",
-    out: false,
-  },
-  {
-    amount: "300 EGP",
-    sub: "OMAR A S****",
-    name: "Me",
-    date: "11 Sep 2026 09:32 PM",
-    kind: "إرسال نقود",
-    out: true,
-  },
-];
 
 function HomePage() {
   const [qrOpen, setQrOpen] = useState(false);

@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import ipnLogo from "@/assets/ipn-color.png";
+import { formatMoney, useWallet } from "@/lib/wallet";
 
 export const Route = createFileRoute("/balance")({
   head: () => ({
