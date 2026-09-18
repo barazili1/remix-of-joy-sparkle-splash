@@ -1115,8 +1115,6 @@
 }
 
 .pin-enter-transfer {
-  animation: page-enter-from-left 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
 
 .pin-loading {
   position: fixed;
@@ -1369,7 +1367,6 @@
   padding-bottom: 96px;
   position: relative;
   overflow-x: hidden;
-  animation: page-enter-from-left 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .ts-hero {
   position: relative;
@@ -1712,7 +1709,6 @@
   color: var(--confirm-paper);
   font-family: var(--font-arabic);
   background-color: var(--confirm-violet);
-  animation: page-enter-from-left 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .confirm-bg {
