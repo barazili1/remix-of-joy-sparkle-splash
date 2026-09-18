@@ -1960,7 +1960,8 @@
 @media (prefers-reduced-motion: reduce) {
   .confirm-simulation,
   .pin-enter-transfer,
-  .success-simulator { transition: none; animation: none; }
+  .success-simulator,
+  .ts { transition: none; animation: none; }
 }
 
 @keyframes page-enter-from-left {
