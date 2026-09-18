@@ -85,10 +85,44 @@ function SuccessSimulatorPage() {
         </article>
       </section>
 
-      <button type="button" className="success-more">
-        <span>المزيد من التفاصيل</span>
+      <button
+        type="button"
+        className={`success-more${showDetails ? " open" : ""}`}
+        aria-expanded={showDetails}
+        onClick={() => setShowDetails((v) => !v)}
+      >
+        <span>{showDetails ? "إخفاء التفاصيل" : "المزيد من التفاصيل"}</span>
         <ChevronDown />
       </button>
+
+      {showDetails && (
+        <section className="success-details" aria-label="تفاصيل المعاملة">
+          <article className="success-detail-card">
+            <div className="success-detail-row">
+              <span className="success-detail-label">رسوم الخدمة</span>
+              <span className="success-detail-value" dir="ltr">{FEE.toFixed(1)} EGP</span>
+            </div>
+            <div className="success-detail-row">
+              <span className="success-detail-label">المبلغ الإجمالي</span>
+              <span className="success-detail-value" dir="ltr">{(amount + FEE).toFixed(1)} EGP</span>
+            </div>
+          </article>
+          <article className="success-detail-card">
+            <div className="success-detail-row">
+              <span className="success-detail-label">الرقم المرجعي</span>
+              <span className="success-detail-value" dir="ltr">{reference}</span>
+            </div>
+            <div className="success-detail-row">
+              <span className="success-detail-label">التاريخ</span>
+              <span className="success-detail-value" dir="ltr">{transactionDate}</span>
+            </div>
+            <div className="success-detail-row">
+              <span className="success-detail-label">ملاحظة</span>
+              <span className="success-detail-value">مصارف المعيشة</span>
+            </div>
+          </article>
+        </section>
+      )}
 
       <img className="success-ipn" src={ipnLogo} alt="Powered by IPN" />
 
