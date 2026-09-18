@@ -72,8 +72,8 @@ function SuccessSimulatorPage() {
       </section>
 
       <button type="button" className="success-more">
-        <ChevronDown />
         <span>المزيد من التفاصيل</span>
+        <ChevronDown />
       </button>
 
       <img className="success-ipn" src={ipnLogo} alt="Powered by IPN" />
