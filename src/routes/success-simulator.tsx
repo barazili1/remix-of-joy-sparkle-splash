@@ -1,8 +1,19 @@
+import { useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Check, ChevronDown, ChevronRight, Share2, Star, Wallet } from "lucide-react";
 import bankLogo from "@/assets/nbe-logo.png";
 import ipnLogo from "@/assets/ipn-logo-colored.png";
 import successCheck from "@/assets/success-check.jpeg";
+
+const FEE = 0.5;
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+function formatTransactionDate(d: Date) {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const h12 = d.getHours() % 12 || 12;
+  const ampm = d.getHours() >= 12 ? "PM" : "AM";
+  return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()} ${pad(h12)}:${pad(d.getMinutes())} ${ampm}`;
+}
 
 type SuccessSearch = {
   amount?: string;

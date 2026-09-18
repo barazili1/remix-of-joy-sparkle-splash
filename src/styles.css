@@ -2106,7 +2106,38 @@
   font-weight: 700;
   cursor: pointer;
 }
-.success-more svg { width: 18px; height: 18px; }
+.success-more svg { width: 18px; height: 18px; transition: transform 200ms ease; }
+.success-more.open svg { transform: rotate(180deg); }
+
+.success-details {
+  display: grid;
+  gap: 16px;
+  margin-top: 26px;
+  animation: success-details-in 220ms ease both;
+}
+.success-detail-card {
+  display: grid;
+  gap: 15px;
+  padding: 19px 17px;
+  border: 1px solid oklch(0.92 0.006 270);
+  border-radius: 16px;
+  background: var(--success-paper);
+}
+.success-detail-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 17px;
+}
+.success-detail-row .success-detail-label { color: oklch(0.32 0.02 267); }
+.success-detail-row .success-detail-value { color: var(--success-ink); text-align: left; }
+
+@keyframes success-details-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .success-ipn { display: block; width: 105px; height: auto; margin: auto auto 18px; object-fit: contain; }
 .success-actions { display: grid; grid-template-columns: 1fr 56px; gap: 14px; direction: ltr; }
 .success-actions button { height: 48px; border: 0; font-family: inherit; cursor: pointer; }
