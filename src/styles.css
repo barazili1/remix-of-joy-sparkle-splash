@@ -2147,7 +2147,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.success-ipn { display: block; width: 105px; height: auto; margin: auto auto 18px; object-fit: contain; }
+.success-ipn { display: block; width: 113px; height: auto; margin: auto auto 20px; object-fit: contain; }
 .success-actions { display: grid; grid-template-columns: 1fr 56px; gap: 14px; direction: ltr; }
 .success-actions button { height: 48px; border: 0; font-family: inherit; cursor: pointer; }
 .success-home {
@@ -2183,7 +2183,7 @@
   .success-details { gap: 10px; margin-top: 12px; }
   .success-detail-card { gap: 9px; padding: 12px 14px; }
   .success-detail-row { font-size: 15px; }
-  .success-ipn { width: 72px; margin-bottom: 8px; }
+  .success-ipn { width: 80px; margin-bottom: 20px; }
 }
 
 
