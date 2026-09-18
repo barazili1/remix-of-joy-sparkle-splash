@@ -10,7 +10,10 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
-    defaultViewTransition: true,
+    defaultViewTransition: {
+      // Navigating into the PIN page slides up; everything else slides right.
+      types: ({ toLocation }) => (toLocation.pathname === "/pin" ? ["vt-up"] : []),
+    },
   });
 
   return router;
